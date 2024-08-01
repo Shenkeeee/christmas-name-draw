@@ -1,25 +1,30 @@
 import React, { useState } from 'react';
 
-const NameInput = ({ addName }) => {
+const NameInput = ({ addName, currentUser, setCurrentUser }) => {
   const [name, setName] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name) {
       addName(name);
+      setCurrentUser(name);
       setName('');
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Enter your name"
-      />
-      <button type="submit">Join the Pool</button>
+      {!currentUser && (
+        <div className='centered'>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Ide írd a neved"
+          />
+          <button type="submit">Belépés!</button>
+        </div>
+      )}
     </form>
   );
 };
