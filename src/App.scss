@@ -1,10 +1,12 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 html {
   overflow: hidden;
+  text-align: center;
 }
 
 .centered {
@@ -15,8 +17,8 @@ html {
 .centered>* {
   width: 100%;
   justify-content: center;
-  text-align: center;
   font-size: 16px;
+  text-align: center;
 }
 
 .wrapper {
@@ -125,4 +127,27 @@ html {
       }
     }
   }
+}
+
+
+
+.sound-wrapper {
+  position: absolute;
+  z-index: 2;
+}
+
+.sound-wrapper button {
+  padding: 18px;
+  margin: 10px;
+  right: 0;
+  border-radius: 10px;
+  border: none;
+  background-color: #1b2735;
+  color: white;
+  font-size: 28px;
+}
+
+.sound-wrapper button:hover {
+  cursor: pointer;
+  background-color: #1b2430;
 }

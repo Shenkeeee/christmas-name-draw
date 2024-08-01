@@ -4,6 +4,7 @@ import NamePool from './components/NamePool';
 import HostControls from './components/HostControls';
 import "./App.scss";
 import SnowBackground from './assets/SnowBackground';
+import SoundPlayer from './assets/SoundPlayer';
 
 const App = () => {
   const [names, setNames] = useState([]);
@@ -48,6 +49,7 @@ const App = () => {
   return (
     <>
       <SnowBackground />
+      <SoundPlayer />
       <div className='wrapper'>
         <h1>Karácsonyi sorsolás!</h1>
         <NameInput addName={addName} currentUser={currentUser} setCurrentUser={setCurrentUser} />
