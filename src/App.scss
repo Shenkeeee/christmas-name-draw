@@ -8,6 +8,7 @@
 html {
   overflow: hidden;
   text-align: center;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
 }
 
 .centered {
@@ -24,15 +25,14 @@ html {
 
 .wrapper {
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-  filter: drop-shadow(0 0 10px white);
   color: white;
-  height: 100dvh;
+  height: 100svh;
   scale: 140%;
 }
 

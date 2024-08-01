@@ -56,7 +56,7 @@ const App = () => {
         {names.length !== 0 && <NamePool names={names} />}
         {currentUser && (
           <>
-            {currentUser === 'Kata' && <HostControls shuffleNames={shuffleNames} />}
+            {currentUser.toLowerCase() === 'kata' && <HostControls shuffleNames={shuffleNames} />}
             {Object.keys(assignedNames).length > 0 && (
               <div>
                 <h2>Kapott név</h2>
