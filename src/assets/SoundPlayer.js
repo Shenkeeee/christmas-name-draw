@@ -6,7 +6,7 @@ const SoundPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const toggleSound = () => {
-    audioRef.current.volume = 0.3;
+    audioRef.current.volume = 0.4;
     if (isPlaying) {
       audioRef.current.pause();
     } else {
@@ -21,7 +21,7 @@ const SoundPlayer = () => {
         {isPlaying ?  (<span>&#128266;</span>) : (<span>&#128264;</span>)}
       </button>
       <audio ref={audioRef} src={bgmusic} >
-        Audio not supported, sorry!
+        
       </audio>
     </div>
   );
