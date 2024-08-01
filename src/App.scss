@@ -33,7 +33,7 @@ html {
   flex-wrap: wrap;
   color: white;
   height: 100svh;
-  scale: 140%;
+  scale: 130%;
 }
 
 .wrapper>*>*>* {
@@ -45,6 +45,15 @@ html {
 
 .wrapper ul {
   list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wrapper ul li{
+  display: flex;
+  flex-direction: column;
+  background-color: #090a0f;
+
 }
 
 
@@ -72,6 +81,12 @@ html {
   .wrapper {
     scale: 100%;
   }
+}
+
+.reset-btn {
+  background: red !important;
+  // height: 20px;
+  line-height: 10px;
 }
 
 
