@@ -8,7 +8,7 @@ import SoundPlayer from './assets/SoundPlayer';
 
 
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, addDoc, setDoc, deleteDoc, doc, query, where } from "firebase/firestore";
+import { getFirestore, collection, getDocs, addDoc, setDoc, deleteDoc, doc, query, where, onSnapshot } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBiPQ2jIxTCD2i3OcpAYGnHbTH8VC0Jaqs",
@@ -30,40 +30,37 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState('');
 
   const fetchNames = async () => {
-    const querySnapshot = await getDocs(collection(db, "names"));
-    const getNames = querySnapshot.docs.map(doc => doc.data().name);
-    setNames(getNames);
+
+    const q = query(collection(db, "names"));
+    onSnapshot(q, async (querySnapshot) => {
+      const getNames = await querySnapshot.docs.map(doc => doc.data().name);
+      setNames(getNames);
+    });
   };
 
   const fetchAssignedNames = async () => {
-    // await deleteDoc(doc(db, "assigments"));
-    const querySnapshot = await getDocs(collection(db, "assignments"));
-    if (!querySnapshot) {
-      return;
-    }
-    const getAssignedNames = await querySnapshot.docs.map(doc => doc.data().assignments);
-    if (getAssignedNames.length === 0) {
-      return;
-    }
 
-    setAssignedNames(getAssignedNames[0]);
+    const q = query(collection(db, "assignments"));
+    onSnapshot(q, async (querySnapshot) => {
+      if (!querySnapshot) {
+        return;
+      }
+      const getAssignedNames = await querySnapshot.docs.map(doc => doc.data().assignments);
+      if (getAssignedNames.length === 0) {
+        setAssignedNames([]);
+        return;
+      }
+      setAssignedNames(getAssignedNames[0]);
+    });
 
-    // console.log(getAssignedNames);
-    // console.log(assignedNames);
   };
 
   useEffect(() => {
     // Fetch data immediately on mount
     fetchNames();
     deleteAllAssignments();
+    fetchAssignedNames();
 
-    const intervalId = setInterval(() => {
-      fetchNames();
-      fetchAssignedNames();
-    }, 500);
-
-    // Clean up interval on component unmount
-    return () => clearInterval(intervalId);
   }, []);
 
 
@@ -148,7 +145,7 @@ const App = () => {
         {names.length !== 0 && <NamePool names={names} currentUser={currentUser} deleteUser={deleteUser} />}
         {currentUser && (
           <>
-            {currentUser.toLowerCase() === 'kata' && <HostControls shuffleNames={shuffleNames} deleteAllAssignments={deleteAllAssignments}  />}
+            {currentUser.toLowerCase() === 'kata' && <HostControls shuffleNames={shuffleNames} deleteAllAssignments={deleteAllAssignments} />}
             {Object.keys(assignedNames).length > 0 && (
               <div>
                 <h2>Kapott név</h2>
