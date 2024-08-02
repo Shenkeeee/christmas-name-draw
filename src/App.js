@@ -9,6 +9,7 @@ import SoundPlayer from './assets/SoundPlayer';
 
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, addDoc, setDoc, deleteDoc, doc, query, where, onSnapshot } from "firebase/firestore";
+import CountdownTimer from './assets/CountdownTimer';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBiPQ2jIxTCD2i3OcpAYGnHbTH8VC0Jaqs",
@@ -148,8 +149,9 @@ const App = () => {
             {currentUser.toLowerCase() === 'kata' && <HostControls shuffleNames={shuffleNames} deleteAllAssignments={deleteAllAssignments} />}
             {Object.keys(assignedNames).length > 0 && (
               <div>
-                <h2>Kapott név</h2>
-                <p>{currentUser}, te őt kaptad: {assignedNames[currentUser]}!</p>
+                {/* <h2>Kapott név</h2>
+                <p>{currentUser}, te őt kaptad: {assignedNames[currentUser]}!</p> */}
+                <CountdownTimer assignedNames={assignedNames} currentUser={currentUser} />
               </div>
             )}
           </>
