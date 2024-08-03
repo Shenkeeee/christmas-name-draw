@@ -10,7 +10,7 @@ const CountdownTimer = ({currentUser, assignedNames}) => {
                     <div className="demo__colored-block"></div>
                 </div>
                 <div className="demo__colored-blocks-inner"></div>
-                <div className="demo__text">{currentUser}, őt húztad: {assignedNames[currentUser]}!</div>
+                <div className="demo__text">{assignedNames[currentUser]}</div>
             </div>
             <div className="demo__inner">
                 <svg className="demo__numbers" viewBox="0 0 100 100">
