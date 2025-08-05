@@ -1,4 +1,4 @@
-import React from 'react';
+const { REACT_APP_ADMIN } = process.env;
 
 const NamePool = ({ names, currentUser, deleteUser }) => {
   return (
@@ -6,8 +6,11 @@ const NamePool = ({ names, currentUser, deleteUser }) => {
       <h2>Nevek a csomagban</h2>
       <ul>
         {names.map((name, index) => (
-          <li key={index}>{name}
-            {currentUser && currentUser.toLowerCase() === 'kata' && <button onClick={() => deleteUser(name)}>Delete</button>}
+          <li key={index}>
+            {name}
+            {currentUser && currentUser.toLowerCase() === REACT_APP_ADMIN && (
+              <button onClick={() => deleteUser(name)}>Delete</button>
+            )}
           </li>
         ))}
       </ul>

@@ -42,6 +42,8 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
 
+const { REACT_APP_ADMIN } = process.env;
+
 const App = () => {
   const [names, setNames] = useState([]);
   const [assignedNames, setAssignedNames] = useState({});
@@ -169,7 +171,7 @@ const App = () => {
         )}
         {currentUser && (
           <>
-            {currentUser.toLowerCase() === "kata" && (
+            {currentUser.toLowerCase() === REACT_APP_ADMIN && (
               <HostControls
                 shuffleNames={shuffleNames}
                 deleteAllAssignments={deleteAllAssignments}
