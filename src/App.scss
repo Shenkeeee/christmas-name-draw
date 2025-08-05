@@ -1,7 +1,8 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   transition: 250ms all;
 }
 
@@ -16,7 +17,7 @@ html {
   flex-wrap: wrap;
 }
 
-.centered>* {
+.centered > * {
   width: 100%;
   justify-content: center;
   font-size: 16px;
@@ -36,7 +37,7 @@ html {
   scale: 130%;
 }
 
-.wrapper>*>*>* {
+.wrapper > * > * > * {
   padding: 15px;
   margin: 5px;
   border: none;
@@ -53,9 +54,7 @@ html {
   display: flex;
   flex-direction: column;
   background-color: #090a0f;
-
 }
-
 
 .wrapper button {
   background-color: rgba(20, 177, 20, 0.9);
@@ -67,7 +66,6 @@ html {
   border-radius: 5px;
 }
 
-
 .wrapper button:hover {
   background-color: rgba(20, 177, 20, 0.8);
   cursor: pointer;
@@ -77,7 +75,7 @@ html {
   margin: 15px 0 !important;
 }
 
-@media screen and (max-width:1131px) {
+@media screen and (max-width: 1131px) {
   .wrapper {
     scale: 100%;
   }
@@ -89,11 +87,9 @@ html {
   line-height: 10px;
 }
 
-
 .reset-btn:hover {
   background: darkred !important;
 }
-
 
 .background {
   position: absolute;
@@ -101,7 +97,6 @@ html {
   filter: drop-shadow(0 0 5px white);
   z-index: 1;
 }
-
 
 @function random_range($min, $max) {
   $rand: random();
@@ -146,8 +141,6 @@ html {
   }
 }
 
-
-
 .sound-wrapper {
   position: absolute;
   z-index: 2;
@@ -169,8 +162,6 @@ html {
   background-color: #1b2430;
 }
 
-
-
 // CountdownTimer
 
 // *, *:before, *:after {
@@ -179,7 +170,7 @@ html {
 //   padding: 0;
 // }
 
-$bgColor: #32386D;
+$bgColor: #32386d;
 
 $numOfColBlocks: 3; // must be higher than 2
 $deg: 360deg / $numOfColBlocks;
@@ -191,9 +182,8 @@ $blue: rgba(20, 197, 20, 1);
 $blocksColors: (
   1: $red,
   2: $yellow,
-  3: $blue
+  3: $blue,
 );
-
 
 $size: 140px;
 $sizeBig: 500px;
@@ -209,7 +199,8 @@ $numJoin1-2: 82.63925170898438;
 $numJoin2-3: 42.81303787231445;
 $numJoin3-0: 40;
 
-$totalLen: $num1Len + $num2Len + $num3Len + $numJoin1-2 + $numJoin2-3 + $numJoin3-0;
+$totalLen: $num1Len + $num2Len + $num3Len + $numJoin1-2 + $numJoin2-3 +
+  $numJoin3-0;
 
 // .demo {
 //   background: $bgColor;
@@ -309,8 +300,8 @@ $totalLen: $num1Len + $num2Len + $num3Len + $numJoin1-2 + $numJoin2-3 + $numJoin
 
   &__text {
     position: absolute;
-    left: 50%;
-    top: 12%;
+    left: 48.5%;
+    top: 10%;
     width: $sizeBig;
     height: 100%;
     margin-left: $sizeBig/-2;
@@ -326,7 +317,6 @@ $totalLen: $num1Len + $num2Len + $num3Len + $numJoin1-2 + $numJoin2-3 + $numJoin
 }
 
 @keyframes contAnim {
-
   15%,
   100% {
     margin-left: $sizeBig/-2;
@@ -378,7 +368,6 @@ $totalLen: $num1Len + $num2Len + $num3Len + $numJoin1-2 + $numJoin2-3 + $numJoin
   100% {
     opacity: 0;
   }
-
 }
 
 @keyframes rotation {
