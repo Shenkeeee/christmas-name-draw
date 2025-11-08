@@ -22,5 +22,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# evn
+# env
 .env
+
+# email-draw
+draw_by_email/draw_data.py
